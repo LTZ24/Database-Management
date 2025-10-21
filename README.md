@@ -1,69 +1,163 @@
-# 📊 Database Management System SMKN 62 Jakarta
+# 📊 Database Management System SMKN 62 Jakarta# 📊 Database Management System SMKN 62 Jakarta
 
 
 
-Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API** dan **Google Sheets API** dengan interface responsive dan fitur lengkap.
+Aplikasi web modern untuk manajemen database sekolah berbasis **Google Drive API** dan **Google Sheets API**. Fitur utama: upload & kelola file, CRUD link kegiatan, kelola Google Forms, login Google OAuth, dan UI responsif.
 
-Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API** dan **Google Sheets API** dengan interface responsive dan fitur lengkap.Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API** dan **Google Sheets API** dengan interface responsive dan fitur lengkap untuk manajemen dokumen, link kegiatan, dan formulir.
+
+
+[![PHP Version](https://img.shields.io/badge/PHP-%3E%3D7.4-blue)](https://www.php.net/)Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API** dan **Google Sheets API** dengan interface responsive dan fitur lengkap.
 
 [![Google Drive API](https://img.shields.io/badge/Google%20Drive%20API-v3-green)](https://developers.google.com/drive)
 
-[![Google Sheets API](https://img.shields.io/badge/Google%20Sheets%20API-v4-green)](https://developers.google.com/sheets)
+[![Google Sheets API](https://img.shields.io/badge/Google%20Sheets%20API-v4-green)](https://developers.google.com/sheets)Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API** dan **Google Sheets API** dengan interface responsive dan fitur lengkap.Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API** dan **Google Sheets API** dengan interface responsive dan fitur lengkap untuk manajemen dokumen, link kegiatan, dan formulir.
 
 [![License](https://img.shields.io/badge/License-Internal%20Use-red)](LICENSE)
 
+[![Google Drive API](https://img.shields.io/badge/Google%20Drive%20API-v3-green)](https://developers.google.com/drive)
+
+---
+
+[![License](https://img.shields.io/badge/License-Internal%20Use-red)](LICENSE)
+
+## ✨ Fitur & Fungsi
+
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D7.4-blue)](https://www.php.net/)
 
+- Upload file ke 4 kategori database (Kurikulum, Kesiswaan, Sapras & Humas, Tata Usaha)
 
-## ✨ Fitur Utama
+- View, rename, dan delete file langsung di Google Drive[![Google Drive API](https://img.shields.io/badge/Google%20Drive%20API-v3-green)](https://developers.google.com/drive)
 
-### 🗂️ Manajemen File dengan Google Drive
+- CRUD link kegiatan sekolah (tersimpan di Google Sheets)
 
-- **4 Kategori Database**: Kurikulum, Kesiswaan, Sapras & Humas, Tata Usaha
-- **Upload File**: Dukungan semua tipe file (max 100MB) dengan progress bar
-- **File Operations**: View, rename, delete file di Google Drive
+- Kelola koleksi link Google Forms## ✨ Fitur Utama
+
+- Login dengan OAuth 2.0 Google, session management, protected routes
+
+- Responsive UI, modern design, Font Awesome & Google Fonts[![Google Sheets API](https://img.shields.io/badge/Google%20Sheets%20API-v4-green)](https://developers.google.com/sheets)
+
+
+
+---### 🗂️ Manajemen File dengan Google Drive
+
+
+
+## 📋 Syarat Instalasi- **4 Kategori Database**: Kurikulum, Kesiswaan, Sapras & Humas, Tata Usaha
+
+  [![License](https://img.shields.io/badge/License-Internal%20Use-red)](LICENSE)
+
+- PHP >= 7.4
+
+- Composer- **Upload File**: Dukungan semua tipe file (max 100MB) dengan progress bar
+
+- Web Server (Apache/Nginx/XAMPP/WAMP)
+
+- Akun Google dengan akses Google Drive API & Sheets API- **File Operations**: View, rename, delete file di Google Drive
+
+- Google Cloud Project dengan Drive API & Sheets API enabled
+
 - **Filter & Sort**: By date, name, size dengan pagination (5-50 item/page)
+
+---
 
 ---## ✨ Fitur Utama## 🚀 Fitur Utama
 
+## 🚀 Instalasi & Setup
+
 ### 🔗 Manajemen Link Kegiatan
 
-- **CRUD Operations**: Create, read, update, delete link kegiatan
+Lihat panduan lengkap di:
+
+- 📖 [docs/SETUP.md](docs/SETUP.md) — Setup aplikasi & troubleshooting- **CRUD Operations**: Create, read, update, delete link kegiatan
+
+- 📖 [docs/SETUP_GOOGLE_API.md](docs/SETUP_GOOGLE_API.md) — Setup Google Cloud Console, OAuth, Drive API, Sheets API
+
 - **Google Sheets Storage**: Data tersimpan real-time di Google Sheets
-- **Auto Timestamp**: Tracking created_at dan updated_at otomatis## 
+
+---
+
+- **Auto Timestamp**: Tracking created_at dan updated_at otomatis## ✨ Fitur Utama---
+
+## 📁 Struktur Folder
 
 
-### 📝 Manajemen Google Forms
 
-- **Form Collection**: Kelola link Google Forms untuk isian data sekolah
-- **Easy Management**: Interface simpel untuk tambah, edit, hapus form
+```
 
+Database-Management-/### 📝 Manajemen Google Forms
 
-### 🔐 Keamanan & Autentikasi
-- **4 Kategori Database**: Kurikulum, Kesiswaan, Sapras & Humas, Tata Usaha
-- **OAuth 2.0**: Login aman dengan akun Google
-- **Session Management**: Auto-logout setelah 30 menit inactive
-- **Upload File**: Upload langsung ke Google Drive dengan progress bar
+├── assets/
 
-## ✨ Fitur Utama
+│   ├── css/                # Stylesheets- **Form Collection**: Kelola link Google Forms untuk isian data sekolah
 
-- **Protected Routes**: Semua halaman dilindungi autentikasi
-- **File Management**: View, rename, delete file
+│   └── images/             # Logo & icons
 
-### 🎨 User Interface
+├── includes/- **Easy Management**: Interface simpel untuk tambah, edit, hapus form### 🗂️ Manajemen File dengan Google Drive
 
-- **Full Responsive**: 7 breakpoints (2560px - 360px)
-- **Filter & Sort**: By date, name, size (newest, oldest, A-Z, Z-A, largest, smallest)### 🗂️
-- **Manajemen File dengan Google Drive**- 
-- **Pengelompokan Database** - 4 Kategori
+│   ├── config.php          # Configuration (gitignored)
+
+│   ├── header.php          # Header
+
+│   └── footer.php          # Footer
+
+├── docs/### 🔐 Keamanan & Autentikasi- **4 Kategori Database**: Kurikulum, Kesiswaan, Sapras & Humas, Tata Usaha
+
+│   ├── SETUP_GOOGLE_API.md # Google API setup guide
+
+│   └── SETUP.md            # App setup & troubleshooting- **OAuth 2.0**: Login aman dengan akun Google
+
+├── data/                   # Legacy database (optional)
+
+├── vendor/                 # Composer dependencies- **Session Management**: Auto-logout setelah 30 menit inactive- **Upload File**: Upload langsung ke Google Drive dengan progress bar## ✨ Fitur Utama
+
+├── login.php               # Login page
+
+├── callback.php            # OAuth callback- **Protected Routes**: Semua halaman dilindungi autentikasi
+
+├── dashboard.php           # Dashboard
+
+├── category.php            # File management- **File Management**: View, rename, delete file
+
+├── manage_links.php        # Link management
+
+├── manage_forms.php        # Form management### 🎨 User Interface
+
+├── logout.php              # Logout
+
+├── composer.json           # PHP dependencies- **Full Responsive**: 7 breakpoints (2560px - 360px)- **Filter & Sort**: By date, name, size (newest, oldest, A-Z, Z-A, largest, smallest)### 🗂️
+
+└── README.md               # This file- **Manajemen File dengan Google Drive**- 
+
+```- **Pengelompokan Database** - 4 Kategori
+
 - **Modern Design**: Gradient, animations, card-based layout
-- **Clean UI**: Font Awesome icons, Google Poppins font-
-- **Pagination**: 5-50 item per halaman
-- **Support All File Types**: PDF, Word, Excel, Image, Video, dll (max 100MB)
-- **Composer** (Dependency Manager)
-  
 
-## � Syarat Instalasi
+---- **Clean UI**: Font Awesome icons, Google Poppins font-
+
+- **Pagination**: 5-50 item per halaman
+
+## 👥 Developer & Support- **Support All File Types**: PDF, Word, Excel, Image, Video, dll (max 100MB)
+
+
+
+- Created by: [KTT Indonesia](https://kttindonesia.com)- ### 🗂️ Manajemen File dengan Google Drive
+
+- Maintained by: SMKN 62 Jakarta IT Dept- **Composer** (Dependency Manager)
+
+- Fork: [LTZ24/Database-Management-](https://github.com/LTZ24/Database-Management-)- **Web Server** (Apache/Nginx/XAMPP/WAMP)
+
+- Email: info@kttindonesia.com- **CRUD Operations**: Create, read, update, delete link kegiatan
+
+- Bug/Request: [GitHub Issues](https://github.com/LTZ24/Database-Management-/issues)- **Akun Google** dengan akses Google Drive API & Sheets API
+
+- **Google Sheets Storage**: Data tersimpan di Google Sheets (real-time sync)  
+
+---- **Auto Timestamp**: Mencatat created_at dan updated_at
+
+
+
+**Made with ❤️ for SMKN 62 Jakarta**## 🚀 Instalasi
+
 
 - PHP >= 7.4
 - Composer
