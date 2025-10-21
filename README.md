@@ -115,8 +115,7 @@ Database-Management-/
 
 ## 👥 Developer & Support
 
-- Created by: [KTT Indonesia](https://kttindonesia.com)
-- Maintained by: SMKN 62 Jakarta IT Dept
+- Created & Maintained by: [KTT Indonesia](https://kttindonesia.com)
 - Fork: [LTZ24/Database-Management-](https://github.com/LTZ24/Database-Management-)
 - Email: info@kttindonesia.com
 - Bug/Request: [GitHub Issues](https://github.com/LTZ24/Database-Management-/issues)
