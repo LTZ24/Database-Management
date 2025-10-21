@@ -1,0 +1,1371 @@
+/* 
+ * Category/Upload Page Styles
+ * Database Management SMKN 62 Jakarta
+ */
+
+/* Utility Classes */
+.d-none {
+    display: none !important;
+}
+
+body {
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+/* Category Header */
+.category-header {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.category-header .category-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.category-info {
+    flex: 1;
+    min-width: 200px;
+}
+
+.category-info h1 {
+    color: var(--text-dark);
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.category-info p {
+    color: var(--text-light);
+    font-size: 14px;
+    margin: 0;
+}
+
+.section {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.section-title {
+    color: var(--text-dark);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title i {
+    color: var(--primary-green);
+}
+
+/* Upload Form */
+.upload-form {
+    background: var(--bg-light);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 2px solid var(--border-color);
+}
+
+.upload-form h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upload-form h3 i {
+    color: var(--primary-green);
+}
+
+/* Upload Progress */
+#uploadProgress {
+    background: var(--bg-white);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--primary-green-light);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#progressBar {
+    position: relative;
+    overflow: hidden;
+    background: var(--primary-green) !important;
+}
+
+#progressBar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Files Grid */
+.files-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.file-item {
+    background: var(--bg-light);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.file-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+    border-color: var(--primary-green);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.file-icon {
+    font-size: 32px;
+    color: var(--primary-green);
+}
+
+.file-details {
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.file-meta {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.file-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+/* Empty/Loading/Error States */
+.empty-state,
+#loadingState,
+#errorState {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state i,
+#loadingState i,
+#errorState i {
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: var(--primary-green-light);
+}
+
+#loadingState i {
+    color: var(--primary-green);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+#errorState i {
+    color: var(--danger-red);
+}
+
+/* Upload Progress Wrapper */
+.upload-progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.upload-icon {
+    font-size: 24px;
+}
+
+.progress-content {
+    flex: 1;
+}
+
+.progress-file-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.progress-bar-container {
+    background: #e9ecef;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: #666;
+}
+
+.progress-percent {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Upload form title */
+.upload-title {
+    margin-bottom: 15px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.upload-title i {
+    color: var(--primary-green);
+}
+
+/* File count badge */
+.file-count-badge {
+    color: #999;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+/* Filter Section */
+.filter-section {
+    background: var(--bg-light);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-select {
+    padding: 8px 35px 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+.filter-select:hover {
+    border-color: var(--primary-green);
+}
+
+/* Date Filter */
+.date-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-input {
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+.date-input:hover {
+    border-color: var(--primary-green);
+}
+
+/* Calendar icon styling for date input */
+.date-input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 4px;
+    transition: all 0.2s;
+}
+
+.date-input::-webkit-calendar-picker-indicator:hover {
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.btn-clear-date {
+    padding: 8px 10px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.btn-clear-date:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.btn-clear-date i {
+    margin: 0;
+}
+
+/* Loading/Empty states */
+.state-container {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+}
+
+.state-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.state-text {
+    font-size: 16px;
+}
+
+.file-size-hint {
+    color: #666;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 20px 25px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-green), #20c997);
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-footer {
+    padding: 20px 25px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.modal-footer .btn {
+    min-width: 100px;
+}
+
+/* Rename Status */
+.rename-status {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideDown 0.3s ease;
+}
+
+.rename-status.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.rename-status.success i {
+    color: #28a745;
+    font-size: 18px;
+}
+
+.rename-status.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.rename-status.error i {
+    color: #dc3545;
+    font-size: 18px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Table Styles for Files */
+.files-table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.files-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.files-table thead {
+    background: linear-gradient(135deg, var(--primary-green), #20c997);
+    color: white;
+}
+
+.files-table thead th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+.files-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.files-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.files-table tbody td {
+    padding: 15px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.files-table .col-no {
+    width: 50px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-green);
+}
+
+.files-table .col-icon {
+    width: 60px;
+    text-align: center;
+    font-size: 28px;
+    color: var(--primary-green);
+}
+
+.files-table .col-name {
+    min-width: 250px;
+    font-weight: 600;
+}
+
+.files-table .col-meta {
+    min-width: 150px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.files-table .col-actions {
+    width: 250px;
+    text-align: center;
+}
+
+.file-table-actions {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Pagination & Data Controls */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.per-page-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.per-page-control label {
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.per-page-select {
+    padding: 8px 30px 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.per-page-select:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+.pagination {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.pagination-btn {
+    min-width: 35px;
+    height: 35px;
+    padding: 0 10px;
+    border: 2px solid var(--border-color);
+    background: white;
+    color: var(--text-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    border-color: var(--primary-green);
+    background: var(--primary-green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pagination-btn.active {
+    background: var(--primary-green);
+    color: white;
+    border-color: var(--primary-green);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    font-size: 13px;
+    color: var(--text-light);
+    margin: 0 10px;
+}
+
+/* Responsive - Quad HD (2560x1440) */
+@media (max-width: 2560px) and (min-width: 1921px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .category-header h1 {
+        font-size: 32px;
+    }
+    
+    .section-title {
+        font-size: 26px;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+}
+
+/* Responsive - Full HD (1920x1080) */
+@media (max-width: 1920px) and (min-width: 1281px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive - HD (1280x720) */
+@media (max-width: 1280px) and (min-width: 1025px) {
+    .container {
+        max-width: 1000px;
+    }
+    
+    .category-header {
+        padding: 25px;
+    }
+    
+    .category-header h1 {
+        font-size: 26px;
+    }
+    
+    .category-header .category-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 36px;
+    }
+    
+    .section {
+        padding: 25px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    .btn {
+        padding: 9px 18px;
+        font-size: 13px;
+    }
+    
+    .btn-clear-date {
+        padding: 9px 12px;
+    }
+    
+    .files-table thead th,
+    .files-table tbody td {
+        padding: 12px;
+        font-size: 13px;
+    }
+    
+    .files-table .col-icon {
+        font-size: 24px;
+    }
+    
+    .file-table-actions .btn {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+    
+    .upload-form {
+        padding: 20px;
+    }
+}
+
+/* Responsive - Tablet/Medium (1024px) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 900px;
+    }
+    
+    .category-header {
+        padding: 22px;
+    }
+    
+    .category-header h1 {
+        font-size: 24px;
+    }
+    
+    .category-header .category-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 32px;
+    }
+    
+    .section {
+        padding: 22px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .btn-clear-date {
+        padding: 8px 10px;
+    }
+    
+    .files-table thead th,
+    .files-table tbody td {
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    .files-table .col-icon {
+        font-size: 22px;
+    }
+    
+    .file-table-actions {
+        gap: 3px;
+    }
+    
+    .file-table-actions .btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+    
+    .upload-form {
+        padding: 18px;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+}
+
+/* Responsive - Tablet Portrait (768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        max-width: 100%;
+    }
+    
+    .category-header {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .category-header h1 {
+        font-size: 18px;
+    }
+    
+    .category-header p {
+        font-size: 11px;
+    }
+    
+    .category-header .category-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .section {
+        padding: 12px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .section-title {
+        font-size: 16px;
+    }
+    
+    .upload-form {
+        padding: 12px;
+    }
+    
+    .upload-title {
+        font-size: 15px;
+    }
+    
+    .filter-section {
+        padding: 8px;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    
+    .filter-group label {
+        font-size: 11px;
+    }
+    
+    .filter-select,
+    .date-input {
+        width: 100%;
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+    
+    .date-filter-group {
+        width: 100%;
+        gap: 6px;
+    }
+    
+    .date-input {
+        flex: 1;
+    }
+    
+    .btn-clear-date {
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+    
+    .btn {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+    
+    .btn-small {
+        padding: 5px 8px;
+        font-size: 9px;
+    }
+    
+    /* Keep table compact on mobile */
+    .files-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .files-table {
+        font-size: 10px;
+        min-width: 500px;
+    }
+    
+    .files-table thead th {
+        padding: 6px 4px;
+        font-size: 10px;
+    }
+    
+    .files-table tbody td {
+        padding: 6px 4px;
+        font-size: 10px;
+    }
+    
+    .files-table .col-no {
+        width: 30px;
+        font-size: 9px;
+    }
+    
+    .files-table .col-icon {
+        width: 35px;
+        font-size: 18px;
+    }
+    
+    .files-table .col-name {
+        min-width: 110px;
+        font-size: 10px;
+    }
+    
+    .files-table .col-meta {
+        min-width: 90px;
+        font-size: 9px;
+    }
+    
+    .files-table .col-actions {
+        width: 130px;
+    }
+    
+    .file-table-actions {
+        gap: 3px;
+        flex-wrap: wrap;
+    }
+    
+    .file-table-actions .btn {
+        padding: 6px 8px;
+        font-size: 10px;
+        white-space: nowrap;
+        border-radius: 5px;
+    }
+    
+    .file-table-actions .btn i {
+        font-size: 10px;
+        margin-right: 3px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+    }
+    
+    .modal-header h3 {
+        font-size: 15px;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 12px;
+    }
+    
+    .form-control {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+    
+    .form-hint {
+        font-size: 10px;
+    }
+    
+    .state-container {
+        padding: 25px 15px;
+    }
+    
+    .state-icon {
+        font-size: 36px;
+    }
+    
+    .state-text {
+        font-size: 13px;
+    }
+    
+    .empty-state {
+        padding: 35px 15px;
+    }
+    
+    .empty-state i {
+        font-size: 45px;
+    }
+    
+    .empty-state p {
+        font-size: 13px;
+    }
+    
+    .table-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .per-page-control {
+        justify-content: center;
+    }
+    
+    .per-page-control label {
+        font-size: 12px;
+    }
+    
+    .per-page-select {
+        padding: 6px 25px 6px 10px;
+        font-size: 12px;
+    }
+    
+    .pagination {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .pagination-btn {
+        min-width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+    
+    .pagination-info {
+        font-size: 11px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Responsive - Mobile (480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+    
+    .category-header {
+        padding: 10px;
+    }
+    
+    .category-header h1 {
+        font-size: 16px;
+    }
+    
+    .category-header p {
+        font-size: 10px;
+    }
+    
+    .category-header .category-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
+    
+    .section {
+        padding: 10px;
+    }
+    
+    .section-title {
+        font-size: 14px;
+    }
+    
+    .upload-form {
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .upload-title {
+        font-size: 15px;
+    }
+    
+    .upload-form .form-control {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+    
+    .upload-form .btn {
+        padding: 9px 14px;
+        font-size: 12px;
+        width: 100%;
+    }
+    
+    .filter-section {
+        padding: 6px 8px;
+    }
+    
+    .filter-group label {
+        font-size: 10px;
+    }
+    
+    .filter-select,
+    .date-input {
+        padding: 5px 7px;
+        font-size: 10px;
+    }
+    
+    .btn {
+        padding: 5px 8px;
+        font-size: 9px;
+    }
+    
+    .btn-small {
+        padding: 4px 6px;
+        font-size: 8px;
+    }
+    
+    .btn-clear-date {
+        padding: 5px 7px;
+        font-size: 8px;
+    }
+    
+    .files-table {
+        font-size: 9px;
+        min-width: 480px;
+    }
+    
+    .files-table thead th {
+        padding: 5px 3px;
+        font-size: 9px;
+    }
+    
+    .files-table tbody td {
+        padding: 5px 3px;
+        font-size: 9px;
+    }
+    
+    .files-table .col-no {
+        width: 28px;
+        font-size: 8px;
+    }
+    
+    .files-table .col-icon {
+        width: 32px;
+        font-size: 16px;
+    }
+    
+    .files-table .col-name {
+        min-width: 100px;
+        font-size: 9px;
+    }
+    
+    .files-table .col-meta {
+        min-width: 80px;
+        font-size: 8px;
+    }
+    
+    .files-table .col-actions {
+        width: 120px;
+    }
+    
+    .file-table-actions .btn {
+        padding: 5px 7px;
+        font-size: 9px;
+        border-radius: 4px;
+    }
+    
+    .file-table-actions .btn i {
+        font-size: 9px;
+        margin-right: 2px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-width: 320px;
+    }
+    
+    .modal-header h3 {
+        font-size: 14px;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 10px;
+    }
+    
+    .modal-footer .btn {
+        min-width: 70px;
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+    
+    .form-control {
+        font-size: 11px;
+        padding: 6px 8px;
+    }
+    
+    .form-hint {
+        font-size: 9px;
+    }
+    
+    .state-container {
+        padding: 20px 10px;
+    }
+    
+    .state-icon {
+        font-size: 32px;
+    }
+    
+    .state-text {
+        font-size: 12px;
+    }
+    
+    .empty-state {
+        padding: 30px 10px;
+    }
+    
+    .empty-state i {
+        font-size: 40px;
+    }
+    
+    .empty-state p {
+        font-size: 12px;
+    }
+    
+    .upload-progress-wrapper {
+        gap: 10px;
+    }
+    
+    .upload-icon {
+        font-size: 18px;
+    }
+    
+    .progress-file-name {
+        font-size: 11px;
+    }
+    
+    .progress-text,
+    .progress-percent {
+        font-size: 10px;
+    }
+    
+    .pagination-btn {
+        min-width: 28px;
+        height: 28px;
+        font-size: 11px;
+        padding: 0 8px;
+    }
+    
+    .pagination-info {
+        font-size: 10px;
+    }
+}

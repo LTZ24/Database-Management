@@ -1,0 +1,593 @@
+/* 
+ * Login Page Styles
+ * Database Management SMKN 62 Jakarta
+ */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, var(--primary-green), #20c997);
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background: var(--bg-white);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+    margin-bottom: 20px;
+}
+
+/* Footer untuk login page */
+body .footer {
+    background: transparent;
+    color: white;
+    box-shadow: none;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+body .footer p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+}
+
+body .footer a {
+    color: white;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+body .footer a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+h1 {
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.google-btn {
+    background: var(--bg-white);
+    color: var(--text-dark);
+    padding: 15px 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.google-btn:hover {
+    border-color: var(--primary-green);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.05), rgba(32, 201, 151, 0.05));
+}
+
+.google-btn:active {
+    transform: translateY(0);
+}
+
+.google-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    background: var(--bg-light);
+}
+
+.google-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Alert Boxes */
+.alert {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    border-left: 4px solid;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert h4 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.alert p {
+    margin: 5px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.alert ol {
+    margin: 10px 0 0 20px;
+    font-size: 13px;
+}
+
+.alert ol li {
+    margin-bottom: 5px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border-left-color: #28a745;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    border-left-color: #ffc107;
+    color: #856404;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border-left-color: #dc3545;
+}
+
+.alert code {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+}
+
+/* Info Box */
+.info-box {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.info-box h3 {
+    color: var(--text-dark);
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-box ul {
+    color: var(--text-light);
+    font-size: 14px;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.info-box li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.info-box li i {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--primary-green);
+}
+
+/* Back Link */
+.back-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-link a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+    gap: 8px;
+}
+
+/* Utility Classes */
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .login-container {
+        padding: 40px 30px;
+        max-width: 400px;
+        margin-bottom: 15px;
+    }
+    
+    body .footer {
+        margin-top: 15px;
+        padding: 12px;
+    }
+    
+    body .footer p {
+        font-size: 11px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .subtitle {
+        font-size: 13px;
+        margin-bottom: 30px;
+    }
+    
+    .google-btn {
+        padding: 14px 25px;
+        font-size: 15px;
+        gap: 12px;
+    }
+    
+    .info-box {
+        padding: 18px;
+    }
+    
+    .info-box h3 {
+        font-size: 15px;
+    }
+    
+    .info-box li {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+    
+    .alert {
+        padding: 12px 16px;
+    }
+    
+    .alert h4 {
+        font-size: 15px;
+    }
+    
+    .alert p {
+        font-size: 13px;
+    }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .login-container {
+        padding: 30px 20px;
+        max-width: 100%;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+    
+    body .footer {
+        margin-top: 10px;
+        padding: 10px;
+    }
+    
+    body .footer p {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+    
+    .logo {
+        width: 80px;
+        margin-bottom: 15px;
+    }
+    
+    h1 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+    
+    .subtitle {
+        font-size: 12px;
+        margin-bottom: 25px;
+    }
+    
+    .google-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        gap: 10px;
+        border-radius: 8px;
+    }
+    
+    .google-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .info-box {
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 8px;
+    }
+    
+    .info-box h3 {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    
+    .info-box ul {
+        font-size: 12px;
+    }
+    
+    .info-box li {
+        margin-bottom: 8px;
+        padding-left: 22px;
+    }
+    
+    .alert {
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .alert h4 {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .alert p {
+        font-size: 12px;
+    }
+    
+    .alert ol {
+        font-size: 11px;
+        margin-left: 15px;
+    }
+    
+    .alert ol li {
+        margin-bottom: 4px;
+    }
+    
+    .alert code {
+        font-size: 11px;
+        padding: 1px 4px;
+    }
+    
+    .back-link {
+        margin-top: 15px;
+    }
+    
+    .back-link a {
+        font-size: 13px;
+    }
+}
+
+/* Extra Small Mobile (360px) */
+@media (max-width: 360px) {
+    body {
+        padding: 8px;
+    }
+    
+    .login-container {
+        padding: 25px 15px;
+        margin-bottom: 8px;
+    }
+    
+    body .footer {
+        margin-top: 8px;
+        padding: 8px;
+    }
+    
+    body .footer p {
+        font-size: 9px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .subtitle {
+        font-size: 11px;
+    }
+    
+    .google-btn {
+        padding: 10px 15px;
+        font-size: 13px;
+        gap: 8px;
+    }
+    
+    .google-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .info-box {
+        padding: 12px;
+    }
+    
+    .info-box h3 {
+        font-size: 13px;
+    }
+    
+    .info-box li {
+        font-size: 11px;
+        padding-left: 20px;
+    }
+    
+    .alert h4 {
+        font-size: 13px;
+    }
+    
+    .alert p,
+    .alert ol {
+        font-size: 11px;
+    }
+}
+
+/* Dark Mode Support (optional) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a4d2e, #14532d);
+    }
+    
+    .login-container {
+        background: #1f2937;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+    
+    h1 {
+        color: #f3f4f6;
+    }
+    
+    .subtitle {
+        color: #9ca3af;
+    }
+    
+    .google-btn {
+        background: #374151;
+        color: #f3f4f6;
+        border-color: #4b5563;
+    }
+    
+    .google-btn:hover {
+        background: #4b5563;
+        border-color: var(--primary-green);
+    }
+    
+    .info-box {
+        background: #374151;
+        border-color: #4b5563;
+    }
+    
+    .info-box h3 {
+        color: #f3f4f6;
+    }
+    
+    .info-box ul {
+        color: #d1d5db;
+    }
+    
+    body .footer {
+        background: transparent;
+    }
+    
+    body .footer p,
+    body .footer a {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    body .footer a:hover {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Loading Animation */
+.google-btn.loading {
+    pointer-events: none;
+}
+
+.google-btn.loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--primary-green);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

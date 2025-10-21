@@ -1,0 +1,38 @@
+# Ignore composer dependencies
+/vendor/
+composer.phar
+composer-setup.php
+
+# Ignore database files
+/data/
+database.json
+
+# Ignore configuration with credentials
+includes/config.php
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore logs
+*.log
+
+# Ignore cache
+cache/
+tmp/
+temp/
+
+# Ignore uploaded files (if stored locally)
+uploads/
+
+# Ignore backup files
+_backup/
+*_backup.php

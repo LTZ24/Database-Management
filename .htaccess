@@ -1,0 +1,15 @@
+# Redirect file lama ke lokasi baru
+
+# Redirect login.php ke auth/login.php
+RewriteEngine On
+RewriteRule ^login\.php$ auth/login.php [L,R=301]
+RewriteRule ^callback\.php$ auth/callback.php [L,R=301]
+RewriteRule ^logout\.php$ auth/logout.php [L,R=301]
+RewriteRule ^dashboard\.php$ pages/dashboard.php [L,R=301]
+RewriteRule ^category\.php$ pages/category.php [L,QSA,R=301]
+RewriteRule ^manage_links\.php$ pages/manage_links.php [L,QSA,R=301]
+RewriteRule ^manage_forms\.php$ pages/manage_forms.php [L,QSA,R=301]
+RewriteRule ^config\.php$ includes/config.php [L,R=301]
+
+# Redirect index.html ke index.php
+RewriteRule ^index\.html$ index.php [L,R=301]
