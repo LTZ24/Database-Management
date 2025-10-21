@@ -312,7 +312,7 @@ Data-Base-Guru/composer install- 💾 **Cloud Storage** - Data tersimpan di Goog
 
 ✅ **Solusi**: Pastikan Authorized Redirect URI di Google Console sama dengan URL callback
 
-```### 🔐 Autentikasi & Keamanan  - **Search by Date** - Filter file berdasarkan tanggal upload
+### 🔐 Autentikasi & Keamanan  - **Search by Date** - Filter file berdasarkan tanggal upload
 
 http://localhost/Data-Base-Guru/callback.php
 
