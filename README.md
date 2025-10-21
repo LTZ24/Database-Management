@@ -64,11 +64,8 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 - **Clean UI**: Font Awesome icons, Google Poppins font-
 - **Pagination**: 5-50 item per halaman
 - **Support All File Types**: PDF, Word, Excel, Image, Video, dll (max 100MB)
-
-- ### 🗂️ Manajemen File dengan Google Drive
 - **Composer** (Dependency Manager)
-  - Web Browser modern
-
+  
 
 ## � Syarat Instalasi
 
@@ -77,6 +74,8 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 - Web Server (Apache/Nginx/XAMPP/WAMP)
 - Akun Google dengan akses Google Drive API & Sheets API
 - Google Cloud Project dengan Drive API & Sheets API enabled
+- Web Browser modern
+
 
 ---
 
