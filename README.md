@@ -1,4 +1,4 @@
-# 📊 Database Management System SMKN 62 Jakarta# 📊 Database Management System SMKN 62 Jakarta# 📊 Database Management System SMKN 62 Jakarta
+# 📊 Database Management System SMKN 62 Jakarta# 
 
 
 
