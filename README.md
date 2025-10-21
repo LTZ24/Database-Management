@@ -31,15 +31,13 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 
 - **CRUD Operations**: Create, read, update, delete link kegiatan
 - **Google Sheets Storage**: Data tersimpan real-time di Google Sheets
-- **Auto Timestamp**: Tracking created_at dan updated_at otomatis## ✨ Fitur Utama---
-
+- **Auto Timestamp**: Tracking created_at dan updated_at otomatis## 
 
 
 ### 📝 Manajemen Google Forms
 
 - **Form Collection**: Kelola link Google Forms untuk isian data sekolah
-- **Easy Management**: Interface simpel untuk tambah, edit, hapus form### 🗂️ Manajemen File dengan Google Drive
-
+- **Easy Management**: Interface simpel untuk tambah, edit, hapus form
 
 
 ### 🔐 Keamanan & Autentikasi
