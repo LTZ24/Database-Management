@@ -61,32 +61,25 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 
 ### 🎨 User Interface
 
-- **Full Responsive**: 7 breakpoints (2560px - 360px)- **Filter & Sort**: By date, name, size (newest, oldest, A-Z, Z-A, largest, smallest)### 🗂️ **Manajemen File dengan Google Drive**- ✅ **Pengelompokan Database** - 4 Kategori:
-
+- **Full Responsive**: 7 breakpoints (2560px - 360px)- **Filter & Sort**: By date, name, size (newest, oldest, A-Z, Z-A, largest, smallest)### 🗂️
+- **Manajemen File dengan Google Drive**- 
+- **Pengelompokan Database** - 4 Kategori
 - **Modern Design**: Gradient, animations, card-based layout
+- **Clean UI**: Font Awesome icons, Google Poppins font-
+- **Pagination**: 5-50 item per halaman
+- **Support All File Types**: PDF, Word, Excel, Image, Video, dll (max 100MB)
 
-- **Clean UI**: Font Awesome icons, Google Poppins font- **Pagination**: 5-50 item per halaman
-
-
-
----- **Support All File Types**: PDF, Word, Excel, Image, Video, dll (max 100MB)### 🗂️ Manajemen File dengan Google Drive
-
-
+- ### 🗂️ Manajemen File dengan Google Drive
 - **Composer** (Dependency Manager)
-
-- **Web Server** (Apache/Nginx/XAMPP/WAMP)- **CRUD Operations**: Create, read, update, delete link kegiatan
-
+- **Web Server** (Apache/Nginx/XAMPP/WAMP)
+- **CRUD Operations**: Create, read, update, delete link kegiatan
 - **Akun Google** dengan akses Google Drive API & Sheets API
-
-- **Google Sheets Storage**: Data tersimpan di Google Sheets (real-time sync)  - 📚 **Kurikulum** - Dokumen pembelajaran, RPP, silabus
-
----
-
+- **Google Sheets Storage**: Data tersimpan di Google Sheets (real-time sync)  
 - **Auto Timestamp**: Mencatat created_at dan updated_at
 
 ## 🚀 Instalasi
 
-- **Pagination**: Tabel terstruktur dengan quick actions  - 👥 **Kesiswaan** - Data siswa, absensi, prestasi  - 📚 **Kurikulum** - Dokumen pembelajaran, RPP, silabus  - 👥 Kesiswaan
+
 
 ### 1️⃣ Clone Repository
 
