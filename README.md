@@ -21,7 +21,6 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 ### 🗂️ Manajemen File dengan Google Drive
 
 - **4 Kategori Database**: Kurikulum, Kesiswaan, Sapras & Humas, Tata Usaha
-  [![License](https://img.shields.io/badge/License-Internal%20Use-red)](LICENSE)
 - **Upload File**: Dukungan semua tipe file (max 100MB) dengan progress bar
 - **File Operations**: View, rename, delete file di Google Drive
 - **Filter & Sort**: By date, name, size dengan pagination (5-50 item/page)
