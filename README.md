@@ -163,9 +163,8 @@ define('GOOGLE_SHEETS_ID', 'YOUR_SPREADSHEET_ID_HERE');  - Auto-detect file type
 ### 5️⃣ Jalankan Aplikasi
 
 ## 📋 Prasyarat
-**XAMPP/WAMP:**
-**PHP Built-in Server:**- 
-**PHP** >= 7.4
+  - XAMPP/WAMP/LAMP dengan PHP 7.4+
+  - Web Browser modern
 
 ```bash
 
@@ -181,19 +180,27 @@ php -S localhost:8000- **Composer** (Dependency Manager)  - **View** - Lihat fil
 
 ## 📖 Dokumentasi
 
-
-
 - 📘 **[Setup Google API](docs/SETUP_GOOGLE_API.md)** - Panduan lengkap OAuth 2.0, Drive API, dan Sheets API
-
-- 📗 **[Setup Aplikasi](docs/SETUP.md)** - Konfigurasi aplikasi dan troubleshooting---  - **Delete** - Hapus file dengan konfirmasi
-
-
-
----
+- 📗 **[Setup Aplikasi](docs/SETUP.md)** - Konfigurasi aplikasi dan troubleshooting---  
 
 
 
-## 🎯 Penggunaan## 🚀 Instalasi  - **Filter & Sort** - Newest, Oldest, A-Z, Z-A, Largest, Smallest  - Real-time upload progress bar dengan animasi- 🔐 **Login dengan Google** - Autentikasi menggunakan akun Google
+## 💻 Teknologi
+- **Backend**: PHP 7.4+- Konfigurasi lengkap dengan screenshot
+- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+- **API Integration**: Google Drive API v3, Google Sheets API v4-️
+- **Easy Management** - Tambah, edit, hapus form dengan mudah
+- **Filter & Sort** - Berdasarkan tanggal, nama, ukuran (newest, oldest, A-Z, Z-A, largest, smallest)
+- **Authentication**: OAuth 2.0
+- **Dependencies**: ### 4. Konfigurasi Aplikasi
+  - `google/apiclient` - Google API Client
+  - `monolog/monolog` - Logging- 📊 **Organized View** - Tabel terstruktur dengan pagination
+- **UI/UX**: 
+  - Font Awesome 6.4.0Copy file konfigurasi:
+  - Google Fonts (Poppins)
+  - CSS Animations & Transitions- 🎨 **Icon Indicators** - Visual icon untuk setiap form  
+  - **Pagination** - Tampilkan 5-50 file per halaman## 🛠️ Instalasi
+
 
 
 
@@ -239,10 +246,6 @@ php -S localhost:8000- **Composer** (Dependency Manager)  - **View** - Lihat fil
 
 ```bash
 
-```
-
-Data-Base-Guru/composer install- 💾 **Cloud Storage** - Data tersimpan di Google Sheets (bukan JSON)
-
 ├── assets/
 │   ├── css/```
 │   │   ├── common.css         # 
@@ -273,36 +276,7 @@ Data-Base-Guru/composer install- 💾 **Cloud Storage** - Data tersimpan di Goog
 ├── logout.php              # Logout handler
 └── composer.json           # PHP dependencies
 
-
-
-
-- **Backend**: PHP 7.4+- Konfigurasi lengkap dengan screenshot
-
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-
-- **API Integration**: Google Drive API v3, Google Sheets API v4- ✏️ **Easy Management** - Tambah, edit, hapus form dengan mudah  - **Filter & Sort** - Berdasarkan tanggal, nama, ukuran (newest, oldest, A-Z, Z-A, largest, smallest)
-
-- **Authentication**: OAuth 2.0
-
-- **Dependencies**: ### 4. Konfigurasi Aplikasi
-
-  - `google/apiclient` - Google API Client
-
-  - `monolog/monolog` - Logging- 📊 **Organized View** - Tabel terstruktur dengan pagination
-
-- **UI/UX**: 
-
-  - Font Awesome 6.4.0Copy file konfigurasi:
-
-  - Google Fonts (Poppins)
-
-  - CSS Animations & Transitions- 🎨 **Icon Indicators** - Visual icon untuk setiap form  - **Pagination** - Tampilkan 5-50 file per halaman## 🛠️ Instalasi
-
-
-
----```bash
-
-
+```
 
 ## 🐛 Troubleshootingcp includes/config.example.php includes/config.php
 
