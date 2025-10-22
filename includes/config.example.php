@@ -1,22 +1,17 @@
 <?php
 // Google Drive API Configuration
-// PENTING: Copy file ini ke config.php dan isi dengan credential Anda
-// Lihat panduan lengkap di docs/SETUP_GOOGLE_API.md
 define('GOOGLE_CLIENT_ID', 'YOUR_GOOGLE_CLIENT_ID_HERE');
 define('GOOGLE_CLIENT_SECRET', 'YOUR_GOOGLE_CLIENT_SECRET_HERE');
-define('GOOGLE_REDIRECT_URI', 'http://localhost/Data-Base-Guru/callback.php');
+define('GOOGLE_REDIRECT_URI', 'http://localhost/Data-Base-Guru/auth/callback.php');
 
 // Google Drive Folder IDs
-// Buat 4 folder di Google Drive dan copy ID-nya dari URL
-define('FOLDER_KESISWAAN', 'YOUR_FOLDER_ID_HERE');
-define('FOLDER_KURIKULUM', 'YOUR_FOLDER_ID_HERE');
-define('FOLDER_SAPRAS_HUMAS', 'YOUR_FOLDER_ID_HERE');
-define('FOLDER_TATA_USAHA', 'YOUR_FOLDER_ID_HERE');
+define('FOLDER_KESISWAAN', 'YOUR_KESISWAAN_FOLDER_ID');
+define('FOLDER_KURIKULUM', 'YOUR_KURIKULUM_FOLDER_ID');
+define('FOLDER_SAPRAS_HUMAS', 'YOUR_SAPRAS_HUMAS_FOLDER_ID');
+define('FOLDER_TATA_USAHA', 'YOUR_TATA_USAHA_FOLDER_ID');
 
 // Google Sheets ID for Links & Forms database
-// Buat spreadsheet dengan 2 sheets: "Links" dan "Forms"
-// Header: Title | URL | Created At | Updated At
-define('GOOGLE_SHEETS_ID', 'YOUR_SPREADSHEET_ID_HERE');
+define('GOOGLE_SHEETS_ID', 'YOUR_GOOGLE_SHEETS_ID_HERE');
 
 // JSON database file (legacy)
 define('DB_FILE', __DIR__ . '/../data/database.json');
@@ -438,10 +433,14 @@ function logoutUser($isTimeout = false) {
     session_destroy();
     
     // Redirect ke login dengan parameter
+    $redirect = dirname($_SERVER['PHP_SELF']);
+    $redirect = str_replace('/pages', '', $redirect);
+    $redirect = str_replace('/includes', '', $redirect);
+    
     if ($isTimeout) {
-        header('Location: /Data-Base-Guru/login.php?session_timeout=1');
+        header('Location: ' . '/Data-Base-Guru/auth/login.php?session_timeout=1');
     } else {
-        header('Location: /Data-Base-Guru/login.php');
+        header('Location: ' . '/Data-Base-Guru/auth/login.php');
     }
     exit;
 }

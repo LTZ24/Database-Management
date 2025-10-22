@@ -46,24 +46,47 @@ if (GOOGLE_SHEETS_ID === 'YOUR_SPREADSHEET_ID_HERE') {
         </div>
 
         <!-- Kategori Database -->
-        <div class="section">
+        <div class="category-section">
             <h2 class="section-title">
                 <i class="fas fa-folder-open"></i>
                 Kategori Database
             </h2>
             <div class="category-grid">
                 <?php foreach ($categories as $key => $category): ?>
-                <a href="category.php?cat=<?php echo $key; ?>" class="category-card">
+                <div class="category-card">
                     <div class="category-icon" style="color: <?php echo $category['color']; ?>">
                         <i class="fas <?php echo $category['icon']; ?>"></i>
                     </div>
                     <div class="category-name"><?php echo $category['name']; ?></div>
-                    <div class="category-link">
-                        <i class="fas fa-link"></i> Lihat Folder
+                    <div class="category-actions">
+                        <a href="category.php?cat=<?php echo $key; ?>" class="category-action-btn" title="Lihat Folder">
+                            <i class="fas fa-folder-open"></i>
+                        </a>
+                        <button class="category-action-btn" onclick="openTablePopup('<?php echo $key; ?>', '<?php echo addslashes($category['name']); ?>')" title="Lihat Tabel">
+                            <i class="fas fa-table"></i>
+                        </button>
                     </div>
-                </a>
+                </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+        
+        <!-- Table Popup Modal -->
+        <div id="tablePopup" class="popup-modal" style="display: none;">
+            <div class="popup-content">
+                <div class="popup-header">
+                    <h3 id="popupTitle">Tabel Kategori</h3>
+                    <button class="popup-close" onclick="closeTablePopup()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="popup-body" id="popupBody">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Memuat data...
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
         
         <!-- Link Kegiatan -->
@@ -694,6 +717,295 @@ if (GOOGLE_SHEETS_ID === 'YOUR_SPREADSHEET_ID_HERE') {
     window.addEventListener('DOMContentLoaded', function() {
         initLinksPagination();
         initFormsPagination();
+    });
+    
+    // Table Popup Functions
+    function openTablePopup(categoryKey, categoryName) {
+        const popup = document.getElementById('tablePopup');
+        const title = document.getElementById('popupTitle');
+        const body = document.getElementById('popupBody');
+        
+        title.innerHTML = '<i class="fas fa-table"></i> Tabel ' + categoryName;
+        popup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Load table content via fetch
+        body.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Memuat data...</div>';
+        
+        fetch('get_category_table.php?cat=' + categoryKey)
+            .then(response => response.text())
+            .then(html => {
+                body.innerHTML = html;
+                
+                // Now load the actual file data
+                const categoryData = document.getElementById('popup-category-data');
+                if (categoryData) {
+                    const cat = categoryData.dataset.category;
+                    const color = categoryData.dataset.color;
+                    
+                    console.log('Loading files for category:', cat);
+                    loadPopupFiles(cat, color);
+                }
+            })
+            .catch(error => {
+                body.innerHTML = '<div class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> Gagal memuat data</div>';
+                console.error('Error loading table:', error);
+            });
+    }
+    
+    function loadPopupFiles(categoryKey, categoryColor) {
+        fetch('api_get_files.php?cat=' + categoryKey)
+            .then(response => {
+                console.log('API Response status:', response.status);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Files data received:', data);
+                document.getElementById('tableLoadingState').style.display = 'none';
+                document.getElementById('tableContentArea').style.display = 'block';
+                
+                if (data.files && data.files.length > 0) {
+                    renderPopupFiles(data.files, categoryColor);
+                } else {
+                    document.getElementById('emptyStatePopup').style.display = 'block';
+                    document.querySelector('#popup-table-container').style.display = 'none';
+                    document.querySelector('.table-controls').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading files:', error);
+                document.getElementById('tableLoadingState').innerHTML = 
+                    '<div class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> Gagal memuat data: ' + error.message + '</div>';
+            });
+    }
+    
+    function getFileIcon(mimeType) {
+        if (mimeType.includes('pdf')) return 'fas fa-file-pdf';
+        if (mimeType.includes('word') || mimeType.includes('document')) return 'fas fa-file-word';
+        if (mimeType.includes('sheet') || mimeType.includes('excel')) return 'fas fa-file-excel';
+        if (mimeType.includes('presentation') || mimeType.includes('powerpoint')) return 'fas fa-file-powerpoint';
+        if (mimeType.includes('image')) return 'fas fa-file-image';
+        if (mimeType.includes('video')) return 'fas fa-file-video';
+        if (mimeType.includes('audio')) return 'fas fa-file-audio';
+        if (mimeType.includes('zip') || mimeType.includes('rar')) return 'fas fa-file-archive';
+        return 'fas fa-file';
+    }
+    
+    function formatFileSize(bytes) {
+        if (!bytes) return 'N/A';
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(1024));
+        return Math.round(bytes / Math.pow(1024, i) * 100) / 100 + ' ' + sizes[i];
+    }
+    
+    function renderPopupFiles(files, categoryColor) {
+        const tbody = document.getElementById('popup-tbody');
+        tbody.innerHTML = '';
+        
+        files.forEach((file, index) => {
+            const tr = document.createElement('tr');
+            tr.dataset.title = file.name;
+            tr.dataset.date = file.createdTime;
+            tr.dataset.size = file.size || 0;
+            
+            tr.innerHTML = `
+                <td class="col-no" data-label="No">${index + 1}</td>
+                <td class="col-title" data-label="Nama File">
+                    <i class="${getFileIcon(file.mimeType)}" style="color: ${categoryColor}"></i>
+                    ${file.name}
+                </td>
+                <td class="col-meta" data-label="Ukuran">
+                    <i class="fas fa-hdd"></i> ${formatFileSize(file.size)}
+                </td>
+                <td class="col-meta" data-label="Tanggal">
+                    <i class="fas fa-calendar"></i> ${new Date(file.createdTime).toLocaleString('id-ID', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    })}
+                </td>
+                <td class="col-actions" data-label="Aksi">
+                    <div class="table-actions">
+                        <a href="${file.webViewLink}" target="_blank" class="btn btn-primary btn-small">
+                            <i class="fas fa-eye"></i> Lihat
+                        </a>
+                        ${file.webContentLink ? `
+                            <a href="${file.webContentLink}" class="btn btn-secondary btn-small" download>
+                                <i class="fas fa-download"></i> Download
+                            </a>
+                        ` : ''}
+                    </div>
+                </td>
+            `;
+            
+            tbody.appendChild(tr);
+        });
+        
+        initPopupPagination();
+        setupPopupFilters();
+    }
+    
+    function setupPopupFilters() {
+        document.getElementById('popup-filter')?.addEventListener('change', filterPopupTable);
+        document.getElementById('popup-date-filter')?.addEventListener('change', filterPopupTable);
+        document.getElementById('popup-clear-date')?.addEventListener('click', function() {
+            document.getElementById('popup-date-filter').value = '';
+            filterPopupTable();
+        });
+    }
+    
+    function filterPopupTable() {
+        const filterValue = document.getElementById('popup-filter').value;
+        const dateValue = document.getElementById('popup-date-filter')?.value;
+        const tbody = document.getElementById('popup-tbody');
+        let items = Array.from(tbody.querySelectorAll('tr'));
+        
+        // Filter by date first
+        if (dateValue) {
+            const selectedDate = new Date(dateValue);
+            selectedDate.setHours(0, 0, 0, 0);
+            
+            items.forEach(item => {
+                const itemDate = item.dataset.date;
+                if (itemDate) {
+                    const date = new Date(itemDate);
+                    date.setHours(0, 0, 0, 0);
+                    
+                    if (date.getTime() === selectedDate.getTime()) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            items = items.filter(item => item.style.display !== 'none');
+        } else {
+            items.forEach(item => item.style.display = '');
+        }
+        
+        // Sort items
+        items.sort((a, b) => {
+            const titleA = a.dataset.title.toLowerCase();
+            const titleB = b.dataset.title.toLowerCase();
+            const dateA = new Date(a.dataset.date || 0);
+            const dateB = new Date(b.dataset.date || 0);
+            
+            switch(filterValue) {
+                case 'a-z':
+                    return titleA.localeCompare(titleB);
+                case 'z-a':
+                    return titleB.localeCompare(titleA);
+                case 'oldest':
+                    return dateA - dateB;
+                case 'latest':
+                default:
+                    return dateB - dateA;
+            }
+        });
+        
+        items.forEach(item => tbody.appendChild(item));
+        
+        window.popupCurrentPage = 1;
+        updatePopupPagination();
+    }
+    
+    let popupCurrentPage = 1;
+    let popupPerPage = 10;
+    let popupAllRows = [];
+    
+    function initPopupPagination() {
+        const tbody = document.getElementById('popup-tbody');
+        if (!tbody) return;
+        
+        popupAllRows = Array.from(tbody.querySelectorAll('tr'));
+        updatePopupPagination();
+        
+        document.getElementById('popup-per-page')?.addEventListener('change', function() {
+            popupPerPage = parseInt(this.value);
+            popupCurrentPage = 1;
+            updatePopupPagination();
+        });
+    }
+    
+    function updatePopupPagination() {
+        const tbody = document.getElementById('popup-tbody');
+        const paginationContainer = document.getElementById('popup-pagination');
+        if (!tbody || !paginationContainer) return;
+        
+        const visibleRows = popupAllRows.filter(row => row.style.display !== 'none');
+        const totalPages = Math.ceil(visibleRows.length / popupPerPage);
+        
+        visibleRows.forEach(row => row.classList.add('d-none'));
+        
+        const start = (popupCurrentPage - 1) * popupPerPage;
+        const end = start + popupPerPage;
+        const pageRows = visibleRows.slice(start, end);
+        
+        pageRows.forEach((row, index) => {
+            row.classList.remove('d-none');
+            const noCell = row.querySelector('.col-no');
+            if (noCell) noCell.textContent = start + index + 1;
+        });
+        
+        paginationContainer.innerHTML = '';
+        
+        if (totalPages <= 1) return;
+        
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'pagination-btn';
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevBtn.disabled = popupCurrentPage === 1;
+        prevBtn.onclick = () => {
+            if (popupCurrentPage > 1) {
+                popupCurrentPage--;
+                updatePopupPagination();
+            }
+        };
+        paginationContainer.appendChild(prevBtn);
+        
+        for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+            const pageBtn = document.createElement('button');
+            pageBtn.className = 'pagination-btn' + (i === popupCurrentPage ? ' active' : '');
+            pageBtn.textContent = i;
+            pageBtn.onclick = () => {
+                popupCurrentPage = i;
+                updatePopupPagination();
+            };
+            paginationContainer.appendChild(pageBtn);
+        }
+        
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'pagination-btn';
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextBtn.disabled = popupCurrentPage === totalPages || totalPages === 0;
+        nextBtn.onclick = () => {
+            if (popupCurrentPage < totalPages) {
+                popupCurrentPage++;
+                updatePopupPagination();
+            }
+        };
+        paginationContainer.appendChild(nextBtn);
+    }
+    
+    function closeTablePopup() {
+        const popup = document.getElementById('tablePopup');
+        popup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Close popup when clicking outside
+    document.getElementById('tablePopup')?.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeTablePopup();
+        }
     });
     </script>
     

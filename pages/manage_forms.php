@@ -119,10 +119,21 @@ if (isset($_GET['edit'])) {
                             <i class="fas fa-info-circle"></i> 
                             Masukkan link Google Form yang sudah dibuat
                         </small>
+                        <div id="urlNotification" class="form-notification" style="display: none;"></div>
+                    </div>
+                    
+                    <!-- Progress Indicator -->
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="progressText">0 dari 2 field terisi</span>
+                        </div>
                     </div>
                     
                     <div class="btn-group">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
                             <i class="fas fa-save"></i> 
                             <?php echo $editForm ? 'Update' : 'Simpan'; ?> Form
                         </button>
@@ -136,5 +147,68 @@ if (isset($_GET['edit'])) {
     </div>
     
     <?php include '../includes/footer.php'; ?>
+    
+    <script>
+    // Progress bar tracking
+    const form = document.querySelector('.manage-form');
+    const titleInput = form.querySelector('input[name="title"]');
+    const urlInput = form.querySelector('input[name="url"]');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    const urlNotification = document.getElementById('urlNotification');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    function updateProgress() {
+        let filled = 0;
+        if (titleInput.value.trim()) filled++;
+        if (urlInput.value.trim()) filled++;
+        
+        const percent = (filled / 2) * 100;
+        progressFill.style.width = percent + '%';
+        progressText.textContent = filled + ' dari 2 field terisi';
+    }
+    
+    titleInput.addEventListener('input', updateProgress);
+    urlInput.addEventListener('input', updateProgress);
+    
+    // Initial progress
+    updateProgress();
+    
+    // Form submission with notification
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyimpan...';
+        
+        const formData = new FormData(form);
+        
+        fetch(form.action || window.location.href, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                urlNotification.className = 'form-notification success';
+                urlNotification.innerHTML = '<i class="fas fa-check-circle"></i> Data berhasil disimpan!';
+                urlNotification.style.display = 'flex';
+                
+                setTimeout(() => {
+                    window.location.href = 'dashboard.php';
+                }, 1500);
+            } else {
+                throw new Error('Gagal menyimpan');
+            }
+        })
+        .catch(error => {
+            urlNotification.className = 'form-notification error';
+            urlNotification.innerHTML = '<i class="fas fa-exclamation-circle"></i> Gagal menyimpan data!';
+            urlNotification.style.display = 'flex';
+            
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> <?php echo $editForm ? "Update" : "Simpan"; ?> Form';
+        });
+    });
+    </script>
 </body>
 </html>
