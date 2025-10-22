@@ -8,15 +8,14 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 
 [![Google Drive API](https://img.shields.io/badge/Google%20Drive%20API-v3-green)](https://developers.google.com/drive)
 
+[![Google Sheets API](https://img.shields.io/badge/Google%20Sheets%20API-v4-green)](https://developers.google.com/sheets)
+
 [![License](https://img.shields.io/badge/License-Internal%20Use-red)](LICENSE)
 
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D7.4-blue)](https://www.php.net/)
 
-[![Google Drive API](https://img.shields.io/badge/Google%20Drive%20API-v3-green)](https://developers.google.com/drive)
 
 ## ✨ Fitur Utama
-
-[![Google Sheets API](https://img.shields.io/badge/Google%20Sheets%20API-v4-green)](https://developers.google.com/sheets)
 
 ### 🗂️ Manajemen File dengan Google Drive
 
