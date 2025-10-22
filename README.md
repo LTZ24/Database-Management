@@ -8,20 +8,17 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 
 [![Google Drive API](https://img.shields.io/badge/Google%20Drive%20API-v3-green)](https://developers.google.com/drive)
 
+[![Google Sheets API](https://img.shields.io/badge/Google%20Sheets%20API-v4-green)](https://developers.google.com/sheets)
+
 [![License](https://img.shields.io/badge/License-Internal%20Use-red)](LICENSE)
 
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D7.4-blue)](https://www.php.net/)
 
-[![Google Drive API](https://img.shields.io/badge/Google%20Drive%20API-v3-green)](https://developers.google.com/drive)
-
 ## ✨ Fitur Utama
-
-[![Google Sheets API](https://img.shields.io/badge/Google%20Sheets%20API-v4-green)](https://developers.google.com/sheets)
 
 ### 🗂️ Manajemen File dengan Google Drive
 
 - **4 Kategori Database**: Kurikulum, Kesiswaan, Sapras & Humas, Tata Usaha
-  [![License](https://img.shields.io/badge/License-Internal%20Use-red)](LICENSE)
 
 - **Upload File**: Dukungan semua tipe file (max 100MB) dengan progress bar
 
@@ -29,7 +26,6 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 
 - **Filter & Sort**: By date, name, size dengan pagination (5-50 item/page)
 
----## ✨ Fitur Utama## 🚀 Fitur Utama
 
 ### 🔗 Manajemen Link Kegiatan
 
@@ -37,8 +33,7 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 
 - **Google Sheets Storage**: Data tersimpan real-time di Google Sheets
 
-- **Auto Timestamp**: Tracking created_at dan updated_at otomatis## ✨ Fitur Utama---
-
+- **Auto Timestamp**: Tracking created_at dan updated_at otomatis## 
 
 
 ### 📝 Manajemen Google Forms
@@ -58,11 +53,10 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 
 - **Upload File**: Upload langsung ke Google Drive dengan progress bar
 
-## ✨ Fitur Utama
-
 - **Protected Routes**: Semua halaman dilindungi autentikasi
 
 - **File Management**: View, rename, delete file
+  
 
 ### 🎨 User Interface
 
@@ -74,11 +68,7 @@ Aplikasi web modern untuk mengelola database sekolah berbasis **Google Drive API
 - **Clean UI**: Font Awesome icons, Google Poppins font-
 - **Pagination**: 5-50 item per halaman
 - **Support All File Types**: PDF, Word, Excel, Image, Video, dll (max 100MB)
-
-- ### 🗂️ Manajemen File dengan Google Drive
 - **Composer** (Dependency Manager)
-  - Web Browser modern
-
 
 
 
@@ -140,5 +130,5 @@ Database-Management-/
 
 ---
 
-**Made with ❤️ for SMKN 62 Jakarta**
+**Made with 💥 for SMKN 62 Jakarta**
 
